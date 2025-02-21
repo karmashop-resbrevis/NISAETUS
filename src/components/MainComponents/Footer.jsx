@@ -2,11 +2,11 @@ import React from 'react'
 import FooterContents from '../Contents/FooterContents'
 
 const Footer = () => {
-  return (
-    <>
-      <FooterContents/>
-    </>
-  )
+	return (
+		<>
+			<FooterContents />
+		</>
+	)
 }
 
 export default Footer
