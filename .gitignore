@@ -9,6 +9,10 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+/src/app/api/data
+/src/app/api/karmamix
+/src/app/dummy
+/REMINDER
 
 # testing
 /coverage
