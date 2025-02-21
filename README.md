@@ -54,4 +54,4 @@ We welcome contributions! Feel free to fork this repository and submit pull requ
 For inquiries or collaborations, reach out at **karma@nisaetus.com**
 
 ---
-### *Nisaetus – Elevate Your Shopping Experience*
+### *Nisaetus – Elevate Your Shopping Experience.*
