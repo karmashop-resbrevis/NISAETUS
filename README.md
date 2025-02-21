@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nisaetus - The Epitome of Luxury eCommerce
 
-## Getting Started
+Welcome to **Nisaetus**, an avant-garde eCommerce platform meticulously designed for an exquisite shopping experience. Crafted with cutting-edge **Next.js 15.1.6**, leveraging the **App Router**, and fine-tuned for seamless performance, Nisaetus redefines online luxury retail.
 
-First, run the development server:
+## 🌟 Features
+- **Next.js 15.1.6** (App Router) – High-performance, modern framework
+- **Dynamic & Responsive UI** – Flawless experience across all devices
+- **Optimized for Speed** – Lightning-fast page loads & smooth navigation
+- **Scalable Architecture** – Ready for future enhancements
+- **SEO-Friendly** – Maximized visibility for organic growth
+- **Secure & Reliable** – Built for trust and credibility
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tech Stack
+- **Frontend:** Next.js 15.1.6 (JavaScript, JSX, App Router)
+- **Styling:** Tailwind CSS (Customizable, elegant design)
+- **Authentication:** (Planned) Clerk, Firebase Auth, or Sanity
+- **Backend:** Headless CMS integration (Sanity)
+- **Deployment:** Vercel / Custom Cloud Infrastructure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Installation & Setup
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/karmashop-resbrevis/NISAETUS.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd nisaetus-ecommerce
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Run the development server:
+   ```sh
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🎨 Customization
+- Modify branding assets in `/public`
+- Update global styles in `/src/app/globals.css`
+- Adjust layout components in `src/components`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📈 Roadmap
+- ✅ Build frontend UI/UX
+- ⏳ Implement authentication (Clerk/Firebase/Sanity)
+- ⏳ Integrate product catalog & CMS (Sanity)
+- ⏳ Deploy with full eCommerce functionality
 
-## Learn More
+## 💎 Contributing
+We welcome contributions! Feel free to fork this repository and submit pull requests.
 
-To learn more about Next.js, take a look at the following resources:
+## 📞 Contact
+For inquiries or collaborations, reach out at **karma@nisaetus.com**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+### *Nisaetus – Elevate Your Shopping Experience.*
