@@ -24,7 +24,7 @@ Welcome to **Nisaetus**, an avant-garde eCommerce platform meticulously designed
    ```
 2. Navigate to the project directory:
    ```sh
-   cd nisaetus-ecommerce
+   cd NISAETUS
    ```
 3. Install dependencies:
    ```sh
