@@ -7,9 +7,10 @@ import { urlFor } from '@/sanity/lib/image';
 import { AnimatePresence } from 'motion/react';
 import * as motion from 'motion/react-client'
 import Link from 'next/link';
-import { NisaetusText } from '@/lang/eng-text';
+import { useTranslations } from 'next-intl';
 
 const HomeContents = () => {
+	const lang = useTranslations('NisaetusText');
 	const [featuredProducts, setFeaturedProducts] = useState([]);
 	const [hotProducts, setHotProducts] = useState([]);
 	const [newProducts, setNewProducts] = useState([]);
@@ -124,7 +125,7 @@ const HomeContents = () => {
 
 			{/* GAMBAR CAROUSEL (FEATURED PRODUCT) */}
 			<div className='h-full w-full overflow-hidden'>
-				<ImageCarousel products={featuredProducts} NisaetusText={NisaetusText} />
+				<ImageCarousel products={featuredProducts} lang={lang} />
 			</div>
 			{/* GAMBAR CAROUSEL (FEATURED PRODUCT) END */}
 
@@ -189,7 +190,7 @@ const HomeContents = () => {
 				viewport={{ once: true }}
 				className='container mx-auto max-w-7xl px-5 mb-10 text-lg sm:text-2xl font-bold'
 			>
-				<h1>{NisaetusText.newproductstext}</h1>
+				<h1>{lang('newproductstext')}</h1>
 			</motion.div>
 
 			<div className='container grid grid-cols1 sm:grid-cols-2 gap-1 mx-auto max-w-7xl px-5 mb-20'>
@@ -271,7 +272,7 @@ const HomeContents = () => {
 												<button
 													className="button-white"
 												>
-													{NisaetusText.browse.toUpperCase()}
+													{lang('browse').toUpperCase()}
 												</button>
 											</Link>
 										</div>

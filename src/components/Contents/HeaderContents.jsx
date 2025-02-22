@@ -8,9 +8,10 @@ import { BrandIcon } from "../Icons/KarmaIcons";
 import InfoSidebar from "../Sidebar/InfoSidebar";
 import MenuSidebar from "../Sidebar/MenuSidebar";
 import SearchSidebar from "../Sidebar/SearchSidebar";
-import { NisaetusText } from "@/lang/eng-text";
+import { useTranslations } from "next-intl";
 
 const HeaderContents = () => {
+	const lang = useTranslations('NisaetusText');
 	const pathname = usePathname();
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [userSidebar, setUserSidebar] = useState(false);
@@ -92,10 +93,10 @@ const HeaderContents = () => {
 			{/* SIDEBAR */}
 
 			{/* SEARCH SIDEBAR */}
-			<SearchSidebar isOpen={searchSidebar} setIsOpen={setSearchSidebar} NisaetusText={NisaetusText} />
+			<SearchSidebar isOpen={searchSidebar} setIsOpen={setSearchSidebar} lang={lang} />
 
 			{/* MENU SIDEBAR */}
-			<MenuSidebar menuSidebar={menuSidebar} setMenuSidebar={setMenuSidebar} categoriesDropdown={categoriesDropdown} setCategoriesDropdown={setCategoriesDropdown} NisaetusText={NisaetusText} />
+			<MenuSidebar menuSidebar={menuSidebar} setMenuSidebar={setMenuSidebar} categoriesDropdown={categoriesDropdown} setCategoriesDropdown={setCategoriesDropdown} lang={lang} />
 
 			{/* USER SIDEBAR */}
 			<InfoSidebar isOpen={userSidebar} setIsOpen={setUserSidebar}>
@@ -104,8 +105,8 @@ const HeaderContents = () => {
 						<X className="icon w-8 h-8" onClick={() => setUserSidebar(false)} />
 					</div>
 					<div className="py-10 border-b border-black/20">
-						<h1 className="text-xl font-bold">{NisaetusText.profile}</h1>
-						<h2 className="text-stone-500">{NisaetusText.reviewprofile}</h2>
+						<h1 className="text-xl font-bold">{lang('profile')}</h1>
+						<h2 className="text-stone-500">{lang('reviewprofile')}</h2>
 					</div>
 				</div>
 			</InfoSidebar>
@@ -120,8 +121,8 @@ const HeaderContents = () => {
 					{bagItems ? (
 						<>
 							<div className="py-10 border-b border-black/20">
-								<h1 className="text-xl font-bold">{NisaetusText.yourshoppingbag}</h1>
-								<h2 className="text-stone-500">{NisaetusText.reviewbag}</h2>
+								<h1 className="text-xl font-bold">{lang('yourshoppingbag')}</h1>
+								<h2 className="text-stone-500">{lang('reviewbag')}</h2>
 							</div>
 							<div className="flex flex-col justify-center items-center py-10">
 								<p>ANU 1</p>
@@ -134,7 +135,7 @@ const HeaderContents = () => {
 						<div className="flex flex-col items-center justify-center h-[80vh]">
 							<h1 className="mb-10">EMPTY</h1>
 							<Link href={'/products/all'} onClick={() => setBagSidebar(false)}>
-								<button name="SHOPPING" className="button-black">{NisaetusText.continueshopping.toUpperCase()}</button>
+								<button name="SHOPPING" className="button-black">{lang('continueshopping').toUpperCase()}</button>
 							</Link>
 						</div>
 					)}

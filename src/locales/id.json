@@ -1,0 +1,57 @@
+{
+	"NisaetusText": {
+		"browse": "Jelajahi",
+		"seemoredetails": "Lihat detail lebih lanjut",
+		"continueshopping": "Lanjutkan berbelanja",
+		"profile": "Profil",
+		"reviewprofile": "Tinjau dan kelola pengaturan profil Anda.",
+		"yourshoppingbag": "Tas Belanja Anda",
+		"reviewbag": "Tinjau dan kelola tas belanja Anda.",
+		"menu": "Menu",
+		"menunavigation": "Navigasi Menu.",
+		"searchproducts": "Cari Produk",
+		"searchsomething": "Cari sesuatu yang mungkin Anda sukai.",
+		"productname": "Nama Produk",
+		"noproductsfound": "Tidak ada produk yang ditemukan.",
+		"brandIntro": "Dimana Keagungan Alam Menginspirasi Kemewahan Modern.",
+		"brandDescription": "Nisaetus mewakili perpaduan antara keindahan alam yang liar dan desain mewah. Terinspirasi oleh Elang Jawa yang megah, setiap koleksi merupakan penghormatan kepada kekuatan, keanggunan, dan keaslian. Dibuat dengan material berkelanjutan dan perhatian detail yang tinggi, Nisaetus menawarkan mode abadi bagi mereka yang menghargai keberanian, keanggunan, dan ketelitian. Kenakan semangat alam Anda—kenakan Nisaetus.",
+		"subscribeText": "Berlangganan Nisaetus untuk pembaruan eksklusif dan pemberitahuan koleksi baru.",
+		"youremailhere": "Email Anda di sini",
+		"newproductstext": "Rasakan pesona inovasi dan keanggunan—koleksi terbaru kami telah tiba, dikurasi untuk mereka yang mencari yang luar biasa.",
+		"language": "Ganti Bahasa"
+	},
+	"footerBottomSections": [
+		{
+			"title": "Tentang Kami",
+			"items": [
+				"Kisah Kami",
+				"Karir",
+				"Blog"
+			]
+		},
+		{
+			"title": "Hubungi Kami",
+			"items": [
+				"Dukungan Pelanggan",
+				"Email: support@nisaetus.com",
+				"Phone: +123 456 789"
+			]
+		},
+		{
+			"title": "Lokasi Toko",
+			"items": [
+				"Temukan Toko",
+				"Informasi Pengiriman",
+				"Pengembalian & Pertukaran"
+			]
+		},
+		{
+			"title": "Kebijakan & Privasi",
+			"items": [
+				"Syarat Layanan",
+				"Kebijakan Privasi",
+				"Kebijakan Pengembalian Dana"
+			]
+		}
+	]
+}

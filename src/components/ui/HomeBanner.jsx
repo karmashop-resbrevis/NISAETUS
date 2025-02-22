@@ -6,7 +6,7 @@ import Link from "next/link";
 import { urlFor } from '@/sanity/lib/image';
 import { ThreeDotsScale } from 'react-svg-spinners';
 
-const ImageCarousel = ({ products, NisaetusText }) => {
+const ImageCarousel = ({ products, lang }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const timerRef = useRef(null);
 	const [isDragging, setIsDragging] = useState(false);
@@ -156,7 +156,7 @@ const ImageCarousel = ({ products, NisaetusText }) => {
 									<button
 										className="button-white"
 									>
-										{NisaetusText.seemoredetails.toUpperCase()}
+										{lang('seemoredetails').toUpperCase()}
 									</button>
 								</Link>
 							</div>

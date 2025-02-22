@@ -4,9 +4,14 @@ import React, { useState } from 'react'
 import { AnimatePresence } from 'motion/react'
 import * as motion from 'motion/react-client'
 import { ArrowRight, Loader2, MailWarning } from 'lucide-react'
-import { NisaetusText, footerBottomSections } from '@/lang/eng-text'
+import { useLocale, useTranslations } from 'next-intl'
+import enData from '@/locales/en.json';
+import idData from '@/locales/id.json';
 
 const FooterContents = () => {
+	const lang = useTranslations('NisaetusText');
+	const locale = useLocale();
+	const footerBottomSections = locale === 'id' ? idData.footerBottomSections : enData.footerBottomSections;
 	const [emailSubscribe, setEmailSubscribe] = useState({ email: '' });
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -73,17 +78,17 @@ const FooterContents = () => {
 					</div>
 					<div className='w-full max-w-6xl flex flex-col gap-5 items-center mx-auto text-center -mt-14 mb-10'>
 						<h1 className='text-2xl font-bold'>
-							{NisaetusText.brandIntro}
+							{lang('brandIntro')}
 						</h1>
 						<p
 							className="text-stone-600"
 							dangerouslySetInnerHTML={{
-								__html: NisaetusText.brandDescription.replace(/Nisaetus/g, `<strong>${BRAND}</strong>`)
+								__html: lang('brandDescription').replace(/Nisaetus/g, `<strong>${BRAND}</strong>`)
 							}}
 						/>
 					</div>
 					<form onSubmit={subscriberSubmit}>
-						<h1 className='text-lg font-bold text-center mb-4'>{NisaetusText.subscribeText}</h1>
+						<h1 className='text-lg font-bold text-center mb-4'>{lang('subscribeText')}</h1>
 						<div className="relative sm:w-96 max-w-sm w-full sm:max-w-xl mx-auto">
 							<input
 								id="search"
@@ -106,7 +111,7 @@ const FooterContents = () => {
                                             peer-valid:top-3 peer-valid:text-xs 
                                             peer-focus:top-3 peer-focus:text-xs cursor-text"
 							>
-								{NisaetusText.youremailhere}
+								{lang('youremailhere')}
 							</label>
 						</div>
 						<AnimatePresence mode='wait'>

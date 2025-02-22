@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
 import { X } from 'lucide-react';
 
-const SearchSidebar = ({ isOpen, setIsOpen, NisaetusText }) => {
+const SearchSidebar = ({ isOpen, setIsOpen, lang }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [products, setProducts] = useState([]);
 	const [genders, setGenders] = useState([]);
@@ -119,6 +119,17 @@ const SearchSidebar = ({ isOpen, setIsOpen, NisaetusText }) => {
 		}
 	}
 
+	const fadeInFilteredProductsVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				duration: 0.3,
+				ease: 'easeInOut'
+			}
+		}
+	}
+
 	return (
 		<AnimatePresence mode="wait">
 			{isOpen && (
@@ -141,8 +152,8 @@ const SearchSidebar = ({ isOpen, setIsOpen, NisaetusText }) => {
 					>
 						<div className="relative p-5 py-10 flex w-screen max-w-2xl mx-auto items-center justify-between">
 							<div>
-								<h1 className="text-xl font-bold">{NisaetusText.searchproducts}</h1>
-								<h2 className="text-stone-500">{NisaetusText.searchsomething}</h2>
+								<h1 className="text-xl font-bold">{lang('searchproducts')}</h1>
+								<h2 className="text-stone-500">{lang('searchsomething')}</h2>
 							</div>
 							<div>
 								<X className="icon w-8 h-8" onClick={() => setIsOpen(false)} />
@@ -168,7 +179,7 @@ const SearchSidebar = ({ isOpen, setIsOpen, NisaetusText }) => {
                                   peer-valid:top-3 peer-valid:text-xs 
                                   peer-focus:top-3 peer-focus:text-xs cursor-text"
 								>
-									{NisaetusText.searchproducts}
+									{lang('searchproducts')}
 								</label>
 
 								{/* SHOW PRODUK NU GEUS DI FILTER KU SEARCH */}
@@ -190,7 +201,7 @@ const SearchSidebar = ({ isOpen, setIsOpen, NisaetusText }) => {
 														<motion.div
 															initial='hidden'
 															animate='visible'
-															variants={fadeInVariants}
+															variants={fadeInFilteredProductsVariants}
 															className='container flex gap-10 items-center text-left w-full'
 														>
 															<div className='w-24'>
@@ -218,12 +229,11 @@ const SearchSidebar = ({ isOpen, setIsOpen, NisaetusText }) => {
 												variants={fadeInVariants}
 												className='mx-auto mt-32 text-stone-950 text-2xl'
 											>
-												<h1>{NisaetusText.noproductsfound}</h1>
+												<h1>{lang('noproductsfound')}</h1>
 											</motion.div>
 										)}
 									</div>
 								)}
-
 							</div>
 						</div>
 					</motion.div>

@@ -2,6 +2,7 @@ import { Assistant } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/Theme/ThemeProvider";
 import HomeWrapper from "@/components/Wrapper/HomeWrapper";
+import InterLang from "@/lib/Lang";
 
 const assistantFont = Assistant({
 	variable: "--font-assistant",
@@ -64,11 +65,13 @@ export default function RootLayout({ children }) {
 					defaultTheme="light"
 					enableSystem
 				>
-					<main>
-						<HomeWrapper>
-							{children}
-						</HomeWrapper>
-					</main>
+					<InterLang>
+						<main>
+							<HomeWrapper>
+								{children}
+							</HomeWrapper>
+						</main>
+					</InterLang>
 				</ThemeProvider>
 			</body>
 		</html>

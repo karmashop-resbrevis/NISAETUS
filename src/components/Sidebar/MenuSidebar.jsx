@@ -3,9 +3,11 @@ import { AnimatePresence } from 'motion/react'
 import * as motion from 'motion/react-client'
 import { X } from 'lucide-react'
 import Link from 'next/link'
+import LanguageSwitcher from '@/locales/LangSwitcher'
 
-const MenuSidebar = ({ menuSidebar, setMenuSidebar, setCategoriesDropdown, categoriesDropdown, menuSidebarTitle, menuSidebarSubTitle, NisaetusText }) => {
+const MenuSidebar = ({ menuSidebar, setMenuSidebar, setCategoriesDropdown, categoriesDropdown, lang }) => {
 	const [categories, setCategories] = useState([]);
+	const [langDropdown, setLangDropdown] = useState(false);
 
 	useEffect(() => {
 		fetch("/api/nisaetus/Genders")
@@ -51,30 +53,49 @@ const MenuSidebar = ({ menuSidebar, setMenuSidebar, setCategoriesDropdown, categ
 									<X className="icon w-8 h-8" onClick={() => setMenuSidebar(false)} />
 								</div>
 								<div className="py-10 border-b border-black/20">
-									<h1 className="text-xl font-bold">{NisaetusText.menu}</h1>
-									<h2 className="text-stone-500">{NisaetusText.menunavigation}</h2>
+									<h1 className="text-xl font-bold">{lang('menu')}</h1>
+									<h2 className="text-stone-500">{lang('menunavigation')}</h2>
 								</div>
-								<div className="relative py-10 flex flex-col">
-									<p onClick={() => setCategoriesDropdown(!categoriesDropdown)} className={`karma-hover-effect w-max ${categoriesDropdown ? 'active' : ''}`}>{NisaetusText.browse}</p>
+								<div className="relative py-10 flex flex-col gap-5">
+									<p onClick={() => setLangDropdown(!langDropdown)} className={`karma-hover-effect w-max ${langDropdown ? 'active' : ''}`}>{lang('language')}</p>
 									<AnimatePresence mode="wait">
-										{categoriesDropdown && (
+										{langDropdown && (
 											<motion.div
 												initial={{ opacity: 0, x: '-10%' }}
 												animate={{ opacity: 1, x: 0 }}
 												exit={{ opacity: 0, x: '-10%' }}
 												transition={{ duration: 0.2, ease: 'easeInOut' }}
-												className="relative p-5 mt-1 flex flex-col gap-1"
+												className="relative px-5 flex flex-col gap-1"
 											>
-												{categories.map((category) => (
-													<div key={category._id}>
-														<Link href={`/products/${category.slug.current}`} onClick={() => { setMenuSidebar(false), setCategoriesDropdown(false) }} className="karma-hover-effect">{category.title}</Link>
-													</div>
-												))}
-												<Link href={`/products/all`} onClick={() => { setMenuSidebar(false), setCategoriesDropdown(false) }} className="karma-hover-effect w-max">Browse all our collections</Link>
-												<Link href={'/dummy'} onClick={() => setMenuSidebar(false)} className="karma-hover-effect w-max">Testing Page</Link>
+												<LanguageSwitcher/>
 											</motion.div>
 										)}
 									</AnimatePresence>
+									<motion.div
+										transition={{duration: 0.2, ease: 'easeInOut'}}
+										className='flex flex-col gap-5'
+									>
+										<p onClick={() => setCategoriesDropdown(!categoriesDropdown)} className={`karma-hover-effect w-max ${categoriesDropdown ? 'active' : ''}`}>{lang('browse')}</p>
+										<AnimatePresence mode="wait">
+											{categoriesDropdown && (
+												<motion.div
+													initial={{ opacity: 0, x: '-10%' }}
+													animate={{ opacity: 1, x: 0 }}
+													exit={{ opacity: 0, x: '-10%' }}
+													transition={{ duration: 0.2, ease: 'easeInOut' }}
+													className="relative px-5 flex flex-col gap-1"
+												>
+													{categories.map((category) => (
+														<div key={category._id}>
+															<Link href={`/products/${category.slug.current}`} onClick={() => { setMenuSidebar(false), setCategoriesDropdown(false) }} className="karma-hover-effect">{category.title}</Link>
+														</div>
+													))}
+														<Link href={`/products/all`} onClick={() => { setMenuSidebar(false), setCategoriesDropdown(false) }} className="karma-hover-effect w-max">Browse all our collections</Link>
+														<Link href={'/dummy'} onClick={() => setMenuSidebar(false)} className="karma-hover-effect w-max">Testing Page</Link>
+												</motion.div>
+											)}
+										</AnimatePresence>
+									</motion.div>
 								</div>
 							</div>
 						</div>
