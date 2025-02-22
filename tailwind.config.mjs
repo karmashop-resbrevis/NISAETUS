@@ -55,49 +55,53 @@ export default {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
-		keyframes: {
-			'accordion-down': {
-				from: {
-					height: '0'
-				},
-				to: {
-					height: 'var(--radix-accordion-content-height)'
-				}
-			},
-			'accordion-up': {
-				from: {
-					height: 'var(--radix-accordion-content-height)'
-				},
-				to: {
-					height: '0'
-				}
-			},
-			kenburns: {
-				'0%': {
-					transform: 'translate(0, 0)',
-				},
-				'50%': {
-					transform: 'translate(-1%, -1%)',
-				},
-				'100%': {
-					transform: 'translate(0, 0)',
-				}
-			},
-			glow: {
-				'0%, 100%': { backgroundPosition: '0% 50%' },
-				'50%': { backgroundPosition: '100% 50%' },
-			},
-		},
-		animation: {
-			'accordion-down': 'accordion-down 0.2s ease-out',
-			'accordion-up': 'accordion-up 0.2s ease-out',
-		  	'kenburns': 'kenburns 10s ease-in-out infinite',
-			'glow': 'glow 2s ease-in-out infinite',
-		},
-		backgroundImage: {
-			'radial-overlay': 'radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%)',
-		},
-  	},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			},
+  			kenburns: {
+  				'0%': {
+  					transform: 'translate(0, 0)'
+  				},
+  				'50%': {
+  					transform: 'translate(-1%, -1%)'
+  				},
+  				'100%': {
+  					transform: 'translate(0, 0)'
+  				}
+  			},
+  			glow: {
+  				'0%, 100%': {
+  					backgroundPosition: '0% 50%'
+  				},
+  				'50%': {
+  					backgroundPosition: '100% 50%'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			kenburns: 'kenburns 10s ease-in-out infinite',
+  			glow: 'glow 2s ease-in-out infinite'
+  		},
+  		backgroundImage: {
+  			'radial-overlay': 'radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%)'
+  		}
+  	}
   },
   plugins: [require("tailwindcss-animate")],
 };

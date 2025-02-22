@@ -7,10 +7,11 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { ThreeDotsScale } from 'react-svg-spinners';
-import { AnimatePresence } from 'motion/react';
 import * as motion from 'motion/react-client'
+import { useTranslations } from 'next-intl';
 
 export default function FeaturedSlugPageContents() {
+	const lang = useTranslations('NisaetusText');
 	const params = useParams();
 	const slug = params?.slug;
 
@@ -140,7 +141,7 @@ export default function FeaturedSlugPageContents() {
 			<div className='text-stone-500 w-max mb-10'>
 				<Link href={'/'} className='flex items-center gap-2 karma-hover-effect'>
 					<ArrowLeft className='w-4 h-4' />
-					<span className='text-sm'>Go back home</span>
+					<span className='text-sm'>{lang('gobackhome')}</span>
 				</Link>
 			</div>
 
@@ -241,8 +242,8 @@ export default function FeaturedSlugPageContents() {
 						</div>
 
 						<div className='flex flex-col gap-2'>
-							<button className='button-outline'>ADD TO CART</button>
-							<button className='button-black'>BUY NOW</button>
+							<button className='button-outline'>{lang('addtobag')}</button>
+							<button className='button-black'>{lang('buynow')}</button>
 						</div>
 
 						<div className='mt-10'>
