@@ -106,7 +106,7 @@ const HeaderContents = () => {
 					</div>
 					<div className="py-10 border-b border-black/20">
 						<h1 className="text-xl font-bold">{lang('profile')}</h1>
-						<h2 className="text-stone-500">{lang('reviewprofile')}</h2>
+						<h2 className="text-stone-500 text-sm">{lang('reviewprofile')}</h2>
 					</div>
 				</div>
 			</InfoSidebar>
@@ -122,7 +122,7 @@ const HeaderContents = () => {
 						<>
 							<div className="py-10 border-b border-black/20">
 								<h1 className="text-xl font-bold">{lang('yourshoppingbag')}</h1>
-								<h2 className="text-stone-500">{lang('reviewbag')}</h2>
+								<h2 className="text-stone-500 text-sm">{lang('reviewbag')}</h2>
 							</div>
 							<div className="flex flex-col justify-center items-center py-10">
 								<p>ANU 1</p>

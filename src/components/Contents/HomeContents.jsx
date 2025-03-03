@@ -1,5 +1,5 @@
 'use client'
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ThreeDotsScale } from 'react-svg-spinners';
 import ImageCarousel from '../ui/HomeBanner';
 import Image from 'next/image';
@@ -16,12 +16,20 @@ const HomeContents = () => {
 	const [newProducts, setNewProducts] = useState([]);
 	const [genders, setGenders] = useState([]);
 	const [loading, setLoading] = useState(false);
+	const [loadedImages, setLoadedImages] = useState({});
 
 	const [imageLoading, setImageLoading] = useState({
 		banner: true,
 		main: true,
 		gallery: {}
 	});
+
+	const handleImageLoad = (productId) => {
+		setLoadedImages(prev => ({
+			...prev,
+			[productId]: true
+		}));
+	};
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -145,11 +153,9 @@ const HomeContents = () => {
 								variants={index % 2 === 0 ? leftToRightVariant : rightToLeftVariant}
 								className="w-full sm:w-3/6 flex justify-start container"
 							>
-								{imageLoading.main && (
-									<div className="absolute inset-0 flex items-center justify-center z-[2]">
-										<ThreeDotsScale />
-									</div>
-								)}
+								<div className={`absolute inset-0 flex items-center justify-center bg-stone-200 transition-opacity duration-300 ${loadedImages[product._id] ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+									<ThreeDotsScale />
+								</div>
 								<Link
 									href={`/products/hot/${product.slug?.current}`}
 								>
@@ -160,7 +166,7 @@ const HomeContents = () => {
 										height={600}
 										className="w-full h-auto object-cover bg-stone-200"
 										loading="lazy"
-										onLoad={() => setImageLoading(prev => ({ ...prev, main: false }))}
+										onLoad={() => handleImageLoad(product._id)}
 									/>
 								</Link>
 							</motion.div>

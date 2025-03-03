@@ -4,7 +4,7 @@ import { urlFor } from '@/sanity/lib/image';
 import { ArrowLeft, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import {useParams, usePathname} from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { ThreeDotsScale } from 'react-svg-spinners';
 import * as motion from 'motion/react-client'
@@ -14,6 +14,7 @@ export default function FeaturedSlugPageContents() {
 	const lang = useTranslations('NisaetusText');
 	const params = useParams();
 	const slug = params?.slug;
+	const pathname = usePathname();
 
 	const [product, setProduct] = useState(null);
 	const [loading, setLoading] = useState(true);
@@ -82,6 +83,8 @@ export default function FeaturedSlugPageContents() {
 		}
 	};
 
+	const changetext = pathname === `/products/all/${slug}`;
+
 	const ImageSkeleton = () => (
 		<div className="absolute inset-0 flex items-center justify-center z-[2] bg-black/90 overflow-hidden">
 			<div className="absolute inset-0 bg-gradient-to-r from-transparent via-stone-700/30 to-transparent bg-[length:200%_100%] animate-glow">
@@ -139,9 +142,13 @@ export default function FeaturedSlugPageContents() {
 			<div className='border-b border-stone-300 mt-14 mb-14' />
 
 			<div className='text-stone-500 w-max mb-10'>
-				<Link href={'/'} className='flex items-center gap-2 karma-hover-effect'>
+				<Link href={changetext ? '/products/all' : '/'} className='flex items-center gap-2 karma-hover-effect'>
 					<ArrowLeft className='w-4 h-4' />
-					<span className='text-sm'>{lang('gobackhome')}</span>
+					{changetext ? (
+						<span className='text-sm'>{lang('gobackbrowse')}</span>
+					): (
+						<span className='text-sm'>{lang('gobackhome')}</span>
+					)}
 				</Link>
 			</div>
 
@@ -229,7 +236,7 @@ export default function FeaturedSlugPageContents() {
 				>
 					<div className='sticky top-20'>
 						<div className='px-2 sm:px-0 mx-auto flex flex-col gap-5'>
-							<span className='-mb-2 px-1 bg-stone-950 text-amber-500 w-max rounded'>{product.status}</span>
+							<span className='-mb-3 p-1 px-2 bg-stone-950 text-stone-200 w-max rounded text-xs font-bold'>{product.status.toUpperCase()}</span>
 							<h1 className='text-xl sm:text-4xl'>{product.title}</h1>
 							<p className='text-sm sm:text-base text-stone-600 mb-10'>{product.description}</p>
 						</div>

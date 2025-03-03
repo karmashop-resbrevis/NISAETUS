@@ -21,7 +21,13 @@
 		"language": "Ganti Bahasa",
 		"addtobag": "Tambahkan Ke Kantong Belanja",
 		"buynow": "Beli Sekarang",
-		"gobackhome": "Kembali Ke Halaman Awal"
+		"gobackhome": "Kembali Ke Halaman Awal",
+		"gobackbrowse": "Kembali Ke Jelajah Produks",
+		"allcollections": "Semua Koleksi",
+		"home": "Halaman Awal",
+		"filteroptions": "Opsi Filter",
+		"category": "Kategori",
+		"discount": "Diskon"
 	},
 	"footerBottomSections": [
 		{

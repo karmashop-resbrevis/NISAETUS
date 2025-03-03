@@ -54,7 +54,7 @@ const MenuSidebar = ({ menuSidebar, setMenuSidebar, setCategoriesDropdown, categ
 								</div>
 								<div className="mt-10 border-b border-black/20">
 									<h1 className="text-xl font-bold">{lang('menu')}</h1>
-									<h2 className="text-stone-500">{lang('menunavigation')}</h2>
+									<h2 className="text-stone-500 text-sm">{lang('menunavigation')}</h2>
 									<Accordion type="single" className='w-full sm:w-52' collapsible>
 										<AccordionItem value="item-1">
 											<AccordionTrigger>{lang('language')}</AccordionTrigger>

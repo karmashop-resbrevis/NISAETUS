@@ -21,7 +21,13 @@
 		"language": "Change Language",
 		"addtobag": "ADD TO SHOPPING BAG",
 		"buynow": "BUY NOW",
-		"gobackhome": "Go back home"
+		"gobackhome": "Go back home",
+		"gobackbrowse": "Go back to browse products",
+		"allcollections": "All Collections",
+		"home": "Home",
+		"filteroptions": "Filter Options",
+		"category": "Categories",
+		"discount": "Discounts"
 	},
 	"footerBottomSections": [
 		{
