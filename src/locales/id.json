@@ -27,7 +27,8 @@
 		"home": "Halaman Awal",
 		"filteroptions": "Opsi Filter",
 		"category": "Kategori",
-		"discount": "Diskon"
+		"discount": "Diskon",
+		"clearfilters": "Bersihkan Filters"
 	},
 	"footerBottomSections": [
 		{

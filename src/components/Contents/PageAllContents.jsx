@@ -1,13 +1,15 @@
 'use client'
-import React, {useEffect, useState} from "react";
-import {ThreeDotsScale} from "react-svg-spinners";
+import React, { useEffect, useState } from "react";
+import { ThreeDotsScale } from "react-svg-spinners";
 import Image from "next/image";
-import {urlFor} from "@/sanity/lib/image";
+import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
-import {useTranslations} from "next-intl";
-import {X} from "lucide-react";
+import { useTranslations } from "next-intl";
+import { X } from "lucide-react";
 import InfoSidebar from "@/components/Sidebar/InfoSidebar";
-import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { AnimatePresence } from "motion/react";
+import * as motion from 'motion/react-client'
 
 const PageAllContents = () => {
     const lang = useTranslations('NisaetusText');
@@ -120,6 +122,18 @@ const PageAllContents = () => {
         );
     }
 
+    const slideVariants = {
+        hidden: { opacity: 0, x: -50 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.5,
+                ease: 'easeInOut'
+            }
+        }
+    }
+
     return (
         <div className={'max-w-7xl mx-auto'}>
             <div className={'flex flex-col py-10 gap-10'}>
@@ -141,18 +155,25 @@ const PageAllContents = () => {
                             className={'karma-hover-effect w-max'}
                             onClick={clearAllFilters}
                         >
-                            Clear Filters
+                            {lang('clearfilters')}
                         </p>
                     </div>
                 )}
             </div>
-            <div className={'grid grid-cols-3 mx-auto gap-1'}>
+            <div className={'grid grid-cols-2 sm:grid-cols-3 mx-auto gap-1'}>
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
-                        <div key={product._id} className="relative">
+                        <motion.div
+                            initial={'hidden'}
+                            whileInView={'visible'}
+                            viewport={{ once: false }}
+                            variants={slideVariants}
+                            key={product._id}
+                            className="relative"
+                        >
                             <div
                                 className={`absolute inset-0 flex items-center justify-center bg-stone-200 transition-opacity duration-300 ${loadedImages[product._id] ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-                                <ThreeDotsScale/>
+                                <ThreeDotsScale />
                             </div>
                             <Link href={`/products/all/${product.slug.current}`}>
                                 <Image
@@ -167,7 +188,7 @@ const PageAllContents = () => {
                             <div className={'absolute top-0 p-5 text-xs text-stone-200 flex gap-1'}>
                                 <span className={'bg-stone-950 py-1 px-2 rounded'}>{product.discount}% OFF!</span>
                             </div>
-                        </div>
+                        </motion.div>
                     ))
                 ) : (
                     <div className="col-span-3 py-20 text-center text-stone-600 text-xl">
@@ -214,7 +235,7 @@ const PageAllContents = () => {
                                     {statuses.map((status) => (
                                         <div key={status} className="flex items-center gap-2">
                                             <label htmlFor={`status-${status}`}
-                                                   className="relative cursor-pointer flex items-center gap-2">
+                                                className="relative cursor-pointer flex items-center gap-2">
                                                 <input
                                                     type="checkbox"
                                                     id={`status-${status}`}
@@ -240,7 +261,7 @@ const PageAllContents = () => {
                                     {discounts.map((discount) => (
                                         <div key={discount} className="flex items-center gap-2">
                                             <label htmlFor={`status-${discount}`}
-                                                   className="relative cursor-pointer flex items-center gap-2">
+                                                className="relative cursor-pointer flex items-center gap-2">
                                                 <input
                                                     type="checkbox"
                                                     id={`status-${discount}`}

@@ -27,7 +27,8 @@
 		"home": "Home",
 		"filteroptions": "Filter Options",
 		"category": "Categories",
-		"discount": "Discounts"
+		"discount": "Discounts",
+		"clearfilters": "Clear Filters"
 	},
 	"footerBottomSections": [
 		{
