@@ -6,7 +6,7 @@ const HomeWrapper = ({ children }) => {
 	return (
 		<div className='relative'>
 			<Header />
-			{children}
+				{children}
 			<Footer />
 		</div>
 	)
